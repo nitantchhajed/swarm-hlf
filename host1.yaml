@@ -45,7 +45,7 @@ services:
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
     environment:
-        - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
     extends:
       file:  base/docker-compose-base.yaml
       service: peer0.org1.example.com
