@@ -44,6 +44,8 @@ services:
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
+    environment:
+        - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
     extends:
       file:  base/docker-compose-base.yaml
       service: peer0.org1.example.com
@@ -73,7 +75,7 @@ services:
     command: /bin/bash
     volumes:
         - /var/run/:/host/var/run/
-        - ./../chaincode/:/opt/gopath/src/github.com/chaincode
+        - ./chaincode/:/opt/gopath/src/github.com/chaincode
         - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
